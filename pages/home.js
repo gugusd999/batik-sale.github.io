@@ -29,9 +29,53 @@ function home(myHost){
             }
 
             var html = div({
-                className: 'flex-header',
+                className: 'flex-container',
                 child: [
-                    'header'
+                    div({
+                        className: 'flex-item-12 bg-green color-white font-size-20 font-josefinsans' 
+                        ,child: [
+                            div({
+                                className: 'title'
+                                ,child: [
+                                    'My Gallery'
+                                ]
+                            })
+                        ]
+                    })
+                ]
+            });
+
+            html += div({
+                className: 'flex-container',
+                child: [
+                    div({
+                        className: 'flex-item-12 bg-white font-size-20 font-josefinsans' 
+                        ,child: [
+                            div({
+                                className: 'title text-center'
+                                ,child: [
+                                    '<input class="pencarian-utama" type="search" placeholder="cari..."/>'
+                                ]
+                            })
+                        ]
+                    })
+                ]
+            });
+
+            html += div({
+                className: 'flex-container',
+                child: [
+                    div({
+                        className: 'flex-item-12 bg-white font-size-20 font-josefinsans' 
+                        ,child: [
+                            div({
+                                className: 'title'
+                                ,child: [
+                                    'this for menus'
+                                ]
+                            })
+                        ]
+                    })
                 ]
             });
 
@@ -51,6 +95,36 @@ function home(myHost){
         }
 
         myscript(){
+            var myimages = [
+                'https://4.bp.blogspot.com/-SqlTRWXBMEs/WdZftna1RDI/AAAAAAAAAf8/_q5lq3kV2cM60tcS_RJVJ_h1BqrGKSVhACLcBGAs/s640/membuat-database-baru-mysql.png'
+                ,'https://i0.wp.com/seruni.id/wp-content/uploads/2016/11/Batik-Indonesia-9.jpg?fit=800%2C600&ssl=1'
+                ,'https://4.bp.blogspot.com/-SqlTRWXBMEs/WdZftna1RDI/AAAAAAAAAf8/_q5lq3kV2cM60tcS_RJVJ_h1BqrGKSVhACLcBGAs/s640/membuat-database-baru-mysql.png'
+                ,'https://i0.wp.com/seruni.id/wp-content/uploads/2016/11/Batik-Indonesia-9.jpg?fit=800%2C600&ssl=1'
+                ,'https://4.bp.blogspot.com/-SqlTRWXBMEs/WdZftna1RDI/AAAAAAAAAf8/_q5lq3kV2cM60tcS_RJVJ_h1BqrGKSVhACLcBGAs/s640/membuat-database-baru-mysql.png'
+                ,'https://i0.wp.com/seruni.id/wp-content/uploads/2016/11/Batik-Indonesia-9.jpg?fit=800%2C600&ssl=1'
+                ,'https://4.bp.blogspot.com/-SqlTRWXBMEs/WdZftna1RDI/AAAAAAAAAf8/_q5lq3kV2cM60tcS_RJVJ_h1BqrGKSVhACLcBGAs/s640/membuat-database-baru-mysql.png'
+                ,'https://cdn0-production-images-kly.akamaized.net/964QK-Nq4TrkJ6X2o0JGYFYJmak=/0x0/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2184692/original/066555600_1525760533-152576053360272batik-kawung.jpg'
+                ,'https://4.bp.blogspot.com/-SqlTRWXBMEs/WdZftna1RDI/AAAAAAAAAf8/_q5lq3kV2cM60tcS_RJVJ_h1BqrGKSVhACLcBGAs/s640/membuat-database-baru-mysql.png'
+                ,'https://i0.wp.com/seruni.id/wp-content/uploads/2016/11/Batik-Indonesia-9.jpg?fit=800%2C600&ssl=1'
+                ,'https://4.bp.blogspot.com/-SqlTRWXBMEs/WdZftna1RDI/AAAAAAAAAf8/_q5lq3kV2cM60tcS_RJVJ_h1BqrGKSVhACLcBGAs/s640/membuat-database-baru-mysql.png'
+                ,'https://i0.wp.com/seruni.id/wp-content/uploads/2016/11/Batik-Indonesia-9.jpg?fit=800%2C600&ssl=1'
+                ,'https://4.bp.blogspot.com/-SqlTRWXBMEs/WdZftna1RDI/AAAAAAAAAf8/_q5lq3kV2cM60tcS_RJVJ_h1BqrGKSVhACLcBGAs/s640/membuat-database-baru-mysql.png'
+                ,'https://i0.wp.com/seruni.id/wp-content/uploads/2016/11/Batik-Indonesia-9.jpg?fit=800%2C600&ssl=1'
+                ,'https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2018/02/motif-batik-bali.jpg'
+                ,'https://i0.wp.com/seruni.id/wp-content/uploads/2016/11/Batik-Indonesia-9.jpg?fit=800%2C600&ssl=1'
+                ,'https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2018/02/motif-batik-bali.jpg'
+                ,'https://i0.wp.com/seruni.id/wp-content/uploads/2016/11/Batik-Indonesia-9.jpg?fit=800%2C600&ssl=1'
+                ,'https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2018/02/motif-batik-bali.jpg'
+                ,'https://i0.wp.com/seruni.id/wp-content/uploads/2016/11/Batik-Indonesia-9.jpg?fit=800%2C600&ssl=1'
+                ,'https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2018/02/motif-batik-bali.jpg'
+                ,'https://i0.wp.com/seruni.id/wp-content/uploads/2016/11/Batik-Indonesia-9.jpg?fit=800%2C600&ssl=1'
+                ,'https://ecs7.tokopedia.net/blog-tokopedia-com/uploads/2018/02/motif-batik-bali.jpg'
+                ,'https://i0.wp.com/seruni.id/wp-content/uploads/2016/11/Batik-Indonesia-9.jpg?fit=800%2C600&ssl=1'
+                ,'https://4.bp.blogspot.com/-SqlTRWXBMEs/WdZftna1RDI/AAAAAAAAAf8/_q5lq3kV2cM60tcS_RJVJ_h1BqrGKSVhACLcBGAs/s640/membuat-database-baru-mysql.png'
+                ,'https://i0.wp.com/seruni.id/wp-content/uploads/2016/11/Batik-Indonesia-9.jpg?fit=800%2C600&ssl=1'
+                ,'https://4.bp.blogspot.com/-SqlTRWXBMEs/WdZftna1RDI/AAAAAAAAAf8/_q5lq3kV2cM60tcS_RJVJ_h1BqrGKSVhACLcBGAs/s640/membuat-database-baru-mysql.png'
+            ];
+
             var getWidth = $("body").width();
             if (getWidth > 600) {
                 var NumberRow = 3;
@@ -61,14 +135,13 @@ function home(myHost){
             else{
                 var NumberRow = 1;
             }
-            for (var i = 0; i < 100 ; i++) {
+            for (var i = 0; i < myimages.length ; i++) {
                 for (var a = 0; a < NumberRow; a++) {
                     if (i%NumberRow == a) {
                         var html = div({
-                            className: 'images'
+                            className: ['images','images font-colabbold']
                             ,child:[
-                                "<img src='https://4.bp.blogspot.com/-SqlTRWXBMEs/WdZftna1RDI/AAAAAAAAAf8/_q5lq3kV2cM60tcS_RJVJ_h1BqrGKSVhACLcBGAs/s640/membuat-database-baru-mysql.png' />"
-                                ,"ok"
+                                "<img src='"+myimages[i]+"' />"
                             ]
                         });
                         var galeryTo = a+1;
